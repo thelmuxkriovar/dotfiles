@@ -21,11 +21,11 @@ ctrl + alt + l
 F6
 	manOpen
 ctrl + super + { Left, Down, Up, Right }
-	~/.config/i3/move-cursor.sh 'focus parent' 'focus { left, down, up, right }' 'focus child'
+	moveCursor 'focus parent' 'focus { left, down, up, right }' 'focus child'
 super + y
 	mpv-playlist appender
 ctrl + alt + { Left, Right }
-	~/.config/i3/move-cursor.sh 'workspace { prev, next }'
+	moveCursor 'workspace { prev, next }'
 super + { Left, Down, Up, Right }
 	moveCursor 'focus { left, down, up, right }'
 super + h
