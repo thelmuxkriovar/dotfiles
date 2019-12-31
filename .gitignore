@@ -22,3 +22,4 @@ emoji
 hosts
 zshrc.old
 ranger/plugins/__init__.py
+nvim/autoload/plug.vim
