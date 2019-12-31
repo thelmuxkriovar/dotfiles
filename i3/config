@@ -135,7 +135,6 @@ for_window [class="discord"] move scratchpad
 
 border_radius 20
 
-
 #<Exec>
 	# exec --no-startup-id /home/danny/.config/i3/screenLayout.sh
 
@@ -146,10 +145,8 @@ border_radius 20
 	exec --no-startup-id ibus-daemon -drx
 	exec --no-startup-id nm-applet
 	exec --no-startup-id xfce4-power-manager
-	exec --no-startup-id pamac-tray
 	exec --no-startup-id clipit
 	exec --no-startup-id blueman-applet
-	exec --no-startup-id start_conky_maia
 	exec --no-startup-id xautolock -time 10 -locker lockScreen
 	exec --no-startup-id enableTouch
 	# fix for broken mouse first is disabled, middle is left, last is right
@@ -159,7 +156,6 @@ border_radius 20
 	exec --no-startup-id "compton --config ~/.config/compton.conf &"
 	exec --no-startup-id "dunst -config ~/.config/dunst.conf"
 	exec --no-startup-id sbxkb
-	exec_always --no-startup-id fix_xcursor
 	exec_always --no-startup-id "feh --bg-fill --randomize '/home/danny/Pictures/Backgrounds'"
 #</Exec>
 

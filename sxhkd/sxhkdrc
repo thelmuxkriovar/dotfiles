@@ -28,16 +28,12 @@ ctrl + alt + { Left, Right }
 	moveCursor 'workspace { prev, next }'
 super + { Left, Down, Up, Right }
 	moveCursor 'focus { left, down, up, right }'
-super + h
-	moveCursor 'split h'; notify-send 'tile horizontally'
-super + v
-	moveCursor 'split v'; notify-send 'tile vertically'
+super + { h, v }
+	moveCursor 'split { h, v }'; notify-send 'tile { horizontally, vertically }'
 super + f
 	moveCursor 'fullscreen toggle'
-super + s
-	moveCursor 'layout stacking'
-super + w
-	moveCursor 'layout tabbed'
+super + { s, w }
+	moveCursor 'layout { stacking, tabbed }'
 super + e
 	moveCursor 'layout toggle split'
 ctrl + grave 
