@@ -11,8 +11,6 @@ nvim/plugged/
 nvim/spell/
 openvpn/
 pacman.d/
-polybar/date
-polybar/songInfo
 polybar/vpnStatus
 ranger/plugins/__pycache__
 rslsync/

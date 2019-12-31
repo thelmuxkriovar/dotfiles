@@ -1,0 +1,11 @@
+#!/bin/sh
+title=$(mpc current)
+timeElapsed=$(mpc | awk 'NR==2{print $3}')
+state=$(mpc | awk 'NR==2{print $1}')
+outText=$title
+if [[ $state == "[paused]" ]]; then
+	outText="$outText (Paused)";
+else
+	outText=" $outText ($timeElapsed) "
+fi
+echo $outText

@@ -1,0 +1,50 @@
+#!/bin/zsh
+timeZones=("Asia/Tokyo" "Europe/Berlin" "America/New_York" "Europe/London")
+
+applyColor() {
+	str=$1
+	color=$2
+	isForeground=$3
+	tag=$([[ "$isForeground" == 1 ]] && echo "F" || echo "B")
+	echo "%{$tag#$color}$str%{$tag-}"
+}
+
+changeTimeZone() {
+	sudo timedatectl set-timezone $1
+}
+
+getCurrentTimeZoneIndex() {
+	search=$(timedatectl | grep "Time zone" | cut -d":" -f2 | cut -d" " -f 2)
+	if [[ $currentIndex > ${#timeZones} ]]; then
+		currentIndex=0
+	fi
+	echo $timeZones[(i)$search]
+}
+
+nextTimeZone() {
+	# in zsh arrays start at 1
+	currentIndex=$(getCurrentTimeZoneIndex)
+	nextIndex=$(($currentIndex + 1))
+	if [[ $nextIndex > ${#timeZones} ]]; then
+		nextIndex=1
+	fi
+	changeTimeZone $timeZones[$nextIndex]
+}
+
+previousTimeZone() {
+	currentIndex=$(getCurrentTimeZoneIndex)
+	previousIndex=$(($currentIndex - 1))
+	if [[ $previousIndex < 1 ]]; then
+		previousIndex=${#timeZones}
+	fi
+	changeTimeZone $timeZones[$previousIndex]
+}
+
+trap 'nextTimeZone' USR1 
+trap 'previousTimeZone' USR2
+
+while [[ 1 ]]; do
+	dateStr="$(applyColor '' "e25822" 0)$(applyColor '  %A, %Y年%m月%d日  %H:%M:%S (%Z) ' 'e25822' 1)$(applyColor '' 'e25822' 0)"
+	echo $(date +"$dateStr")
+	sleep 0.5
+done
