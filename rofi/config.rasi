@@ -1,0 +1,90 @@
+configuration {
+	display-drun: "🏃 Run";
+	display-window: "缾 Window";
+	display-ssh: " SSH";
+	show-icons: true;
+	ssh-command: "{terminal} -e \"{ssh-client} {host} [-p {port}]\"";
+}
+ 
+* {
+	lines: 15;
+	columns: 1;
+	background-color: #00000065;
+	border-color: #00000000;
+	text-color: #EFEFEF;
+	font: "Fura Code Nerd 12";
+}
+
+#window {
+	border: 0;
+	border-radius: 4px;
+	padding: -10 10 -10 10;
+}
+ 
+#mainbox {
+	background-color: #00000000;
+	children: [inputbar, message, listview, mode-switcher];
+	spacing: 10px;
+	/*margin: 20%;*/
+	padding: 30px 0;
+	border: 1px;
+	border-color: @base0D;
+}
+ 
+ 
+#listview {
+	background-color: #00000000;
+	fixed-height: 0;
+	border: 0px;
+	spacing: 5px;
+	scrollbar: false;
+	padding: 10px 10px 0px;
+	columns: 3;
+}
+ 
+#element {
+	background-color: #00000000;
+	border: 0;
+	border-radius: 15px;
+	padding: 3 0  3 4 ;
+}
+ 
+#element selected {
+	background-color: #00a0e6;
+	text-color: #EFEFEF;
+}
+ 
+ 
+#inputbar {
+	children:   [prompt, textbox-prompt-colon, entry, case-indicator ];
+	background-color: #00000000;
+}
+ 
+#case-indicator {
+	background-color: #00000000;
+	spacing:    0;
+}
+#entry {
+	background-color: #00000000;
+	spacing:    0;
+}
+
+#prompt {
+	background-color: #00000000;
+	spacing:    0;
+}
+ 
+#textbox-prompt-colon {
+	background-color: #00000000;
+	expand:     false;
+	str:        ":";
+	margin:     0px 0.3em 0em 0em ;
+}
+
+#mode-switcher {
+	background-color: #00000065;
+}
+
+#button selected {
+	background-color: #00a0e6;
+}

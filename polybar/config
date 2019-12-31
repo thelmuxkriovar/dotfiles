@@ -1,0 +1,178 @@
+[colors]
+background = #2E3440
+
+[bar/general]
+width = 100%
+radius = 0
+line-size = 0
+
+font-0 = San Francisco Display Regular:size=10;3
+font-1 = "Hack Nerd Font:size=12:antialias=true;3"
+font-2 = "Noto Sans CJK JP:size=11:antialias=true;3"
+
+module-margin-left = 0
+module-margin-right = 2
+background = ${colors.background}
+foreground = #ECEFF4
+
+modules-left = i3 music
+modules-center = date
+modules-right = updates cpu load disk wifi lan vpn ram volume
+enable-ipc = true
+wm-name = i3
+
+[bar/main]
+inherit = bar/general
+monitor = HDMI3
+tray-position = right
+
+[module/cpu]
+type = internal/cpu
+interval = 0.5
+format = <label>
+; <ramp-coreload>
+
+label =  %percentage:02%%
+
+; Spacing between individual per-core ramps
+ramp-coreload-spacing = 0
+ramp-coreload-0 = ▁
+ramp-coreload-1 = ▂
+ramp-coreload-2 = ▃
+ramp-coreload-3 = ▄
+ramp-coreload-4 = ▅
+ramp-coreload-5 = ▆
+ramp-coreload-6 = ▇
+ramp-coreload-7 = █
+
+[module/disk]
+type = internal/fs
+mount-0 = /
+interval = 10
+label-mounted = " %free%"
+
+[module/ram]
+type = internal/memory
+format = <label>
+label = %gb_used%/%gb_total%
+
+[module/i3]
+type = internal/i3
+; Only show workspaces defined on the same output as the bar
+pin-workspaces = true
+index-sort = true
+enable-click = true
+enable-scroll = true
+wrapping-scroll = true
+reverse-scroll = false
+strip-wsnumbers = true
+; Use fuzzy (partial) matching on labels when assigning icons to workspaces
+
+format = <label-state><label-mode>
+
+label-mode = %mode%
+label-mode-padding = 0
+label-mode-background = #e60053
+
+label-focused = %name%
+label-focused-foreground = #ffffff
+label-focused-background = #3f3f3f
+label-focused-underline = #fba922
+label-focused-padding = 3
+
+label-unfocused = %name%
+label-unfocused-padding = 3
+
+label-visible = %name%
+label-visible-underline = #555555
+label-visible-padding = 3
+
+label-urgent = %name%
+label-urgent-foreground = #000000
+label-urgent-background = #bd2c40
+label-urgent-padding = 3
+
+; Separator in between workspaces
+label-separator = |
+label-separator-padding = 0
+label-separator-foreground = #ffb52a
+
+
+[module/date]
+type = custom/script
+tail = true
+exec = ~/.config/polybar/date
+click-left = kill -USR1 %pid%
+click-right = kill -USR2 %pid%
+scroll-up = kill -USR1 %pid%
+scroll-down = kill -USR2 %pid%
+
+[module/volume]
+type = internal/pulseaudio
+format-volume = <ramp-volume> <label-volume>
+format-muted =  muted
+label-muted-foreground = #666
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+interval = 1
+use-ui-max = true # 100% max
+
+[module/lan]
+type = internal/network
+interface = enp1s0f0
+format-packetloss = <animation-packetloss> <label-connected>
+label-connected =  %local_ip%
+label-disconnected =  no lan
+animation-packetloss-0 = ⚠
+animation-packetloss-0-foreground = #ffa64c
+animation-packetloss-1 = 📶
+animation-packetloss-1-foreground = #000000
+; Framerate in milliseconds
+animation-packetloss-framerate = 500
+
+[module/wifi]
+type = custom/script
+exec = getWifi
+tail = true
+format = <label>
+format-padding = 0 
+click-left = kill -USR1 %pid%
+
+[module/load]
+type = custom/script
+exec = cat /proc/loadavg | awk '{ print $1 }'
+interval = 1
+format = load <label>
+
+[module/updates]
+type = custom/script
+exec = $HOME/.config/polybar/updates
+exec-if = "ping -c 1 8.8.8.8 > /dev/null"
+click-left = termite -e "yay -Syyu" &
+interval = 600
+
+[module/music]
+type = custom/script
+interval = 1
+label = %output:0:100:...%
+exec = $HOME/.config/polybar/songInfo
+click-left = mpc toggle
+scroll-up = mpc next
+scroll-down = mpc prev
+
+[module/vpn]
+type = custom/script
+label = %output%
+exec = ~/.config/polybar/vpnStatus
+click-right = termite -e "/home/danny/.bin/vpnStatus disconnect" &
+interval = 2
+
+# [module/mpv]
+# type = custom/script
+# label = %output%
+# exec = mpv-polybar
+# tail = true
+# click-left = kill -USR1 %pid%
+
+# vi: ft=dosini

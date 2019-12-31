@@ -1,0 +1,47 @@
+{
+	"layout": "splith",
+	"percent": 1,
+	"type": "con",
+	"nodes": [{
+		"layout": "splitv",
+		"percent": 0.71,
+		"type": "con",
+		"nodes": [{
+			"name": "Editor",
+			"percent": 0.85,
+			"swallows": [{
+				"title": "^Editor"
+			}],
+			"type": "con"
+		}, {
+			"layout": "splith",
+			"percent": 0.15,
+			"nodes": [{
+				"name": "Commands",
+				"percent": 0.5,
+				"swallows": [{
+					"title": "^Commands$"
+				}],
+				"type": "con"
+			}, {
+				"name": "Compiler",
+				"percent": 0.5,
+				"swallows": [{
+					"title": "^Compiler$"
+				}],
+				"type": "con"
+			}]
+		}]
+	}, {
+		"layout": "splitv",
+		"percent": 0.29,
+		"nodes": [{
+			"name": "Preview",
+			"percent": 0.7018,
+			"swallows": [{
+				"class": "^Zathura$"
+			}],
+			"type": "con"
+		}]
+	}]
+}

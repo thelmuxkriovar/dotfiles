@@ -1,0 +1,49 @@
+super + m
+	termite -e mountable
+super + shift + m
+	termite -e unmountable
+super + Return
+	termite
+super + c
+	rofiCalculator
+super + d
+	rofi -modi "drun,ssh" -show drun
+super + i
+	termite -e htop
+super + shift + a
+	termite -e alsamixer
+super + shift + grave
+	unicodeMenu
+@ctrl + shift + alt + 4
+	takeScreenshot
+ctrl + alt + l
+	lockScreen
+F6
+	manOpen
+ctrl + super + { Left, Down, Up, Right }
+	~/.config/i3/move-cursor.sh 'focus parent' 'focus { left, down, up, right }' 'focus child'
+super + y
+	mpv-playlist appender
+ctrl + alt + { Left, Right }
+	~/.config/i3/move-cursor.sh 'workspace { prev, next }'
+super + { Left, Down, Up, Right }
+	moveCursor 'focus { left, down, up, right }'
+super + h
+	moveCursor 'split h'; notify-send 'tile horizontally'
+super + v
+	moveCursor 'split v'; notify-send 'tile vertically'
+super + f
+	moveCursor 'fullscreen toggle'
+super + s
+	moveCursor 'layout stacking'
+super + w
+	moveCursor 'layout tabbed'
+super + e
+	moveCursor 'layout toggle split'
+ctrl + grave 
+	startDiscord
+super + { KP_Add, KP_Subtract }
+	i3-msg "gaps inner all { plus, minus } 2"
+ctrl + shift + KP_Enter
+	i3-easyfocus -a
+

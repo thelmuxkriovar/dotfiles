@@ -1,0 +1,60 @@
+KEY_ESC
+	termite -e "weather"
+KEY_T
+	termite
+KEY_S
+	surf `/usr/bin/xclip -selection c -o`
+KEY_D
+	startPMA
+KEY_C
+	startDiscord
+KEY_X
+	bookWritingEnv
+KEY_PAGEUP
+	pkill -f -SIGUSR1 ".config/polybar/date"
+KEY_PAGEDOWN
+	pkill -f -SIGUSR2 ".config/polybar/date"
+@KEY_UP
+	amixer -q sset Master 1%+
+KEY_UP
+	amixer -q sset Master 1%+
+KEY_DOWN
+	amixer -q sset Master 1%-
+@KEY_DOWN
+	amixer -q sset Master 1%-
+KEY_LEFT
+	/home/danny/.config/i3/move-cursor.sh 'workspace prev'
+KEY_RIGHT
+	/home/danny/.config/i3/move-cursor.sh 'workspace next'
+KEY_M
+	/home/danny/.config/i3/mastermover.sh 'left' 'right'
+KEY_K
+	/home/danny/.config/i3/mastermover.sh 'up' 'down'
+KEY_COMMA
+	/home/danny/.config/i3/mastermover.sh 'down' 'up'
+KEY_DOT
+	/home/danny/.config/i3/mastermover.sh 'right' 'left'
+KEY_I
+	termite -e 'htop'
+KEY_L
+	lockScreen
+KEY_A
+	smartMake
+KEY_B
+	blueberry
+KEY_GRAVE
+	switchBackToArch
+KEY_1
+	switchToMac
+KEY_2
+	switchToWindows
+KEY_3
+	switchToPfSense
+KEY_F
+	termite -e 'zsh -c "ncmpcpp"'
+KEY_O
+	mpv /dev/video0
+KEY_Q
+	i3-msg 'kill'
+KEY_SPACE
+	i3-easyfocus -a
