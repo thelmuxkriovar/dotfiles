@@ -44,7 +44,7 @@ trap 'nextTimeZone' USR1
 trap 'previousTimeZone' USR2
 
 while [[ 1 ]]; do
-	dateStr="$(applyColor '' "e25822" 0)$(applyColor '  %A, %Y年%m月%d日  %H:%M:%S (%Z) ' 'e25822' 1)$(applyColor '' 'e25822' 0)"
+	dateStr="$(applyColor '' "e25822" 1)$(applyColor '  %A, %Y年%m月%d日  %H:%M:%S (%Z) ' 'e25822' 0)$(applyColor '' 'e25822' 1)"
 	echo $(date +"$dateStr")
 	sleep 0.5
 done
