@@ -130,7 +130,8 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 map <leader>g :Goyo<CR>
 map <C-n> :NERDTreeToggle<CR>
 
-noremap <C-k>sudo <Esc>:w    !sudo tee %<CR>
+" noremap <C-k>sudo <Esc>:w    !sudo tee %<CR>
+noremap <C-k>sudo <Esc>:w !SUDO_ASKPASS=`which ssh-askpass` sudo tee % >/dev/null<CR>
 noremap <silent>  <Up>       gk
 noremap <silent>  <Down>     gj
 noremap <silent>  <Home>     g<Home>
