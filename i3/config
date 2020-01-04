@@ -135,7 +135,7 @@ for_window [class="discord"] move scratchpad
 # exec --no-startup-id "termite -e 'amazonRemote'"
 # exec --no-startup-id "termite -e 'ncmpcpp'"
 
-border_radius 20
+border_radius 15
 
 #<Exec>
 	# exec --no-startup-id /home/danny/.config/i3/screenLayout.sh
