@@ -11,9 +11,9 @@ export DOTFILES=$HOME/Dotfiles
 export ZshFiles=$DOTFILES/zsh
 
 typeset -U config_files
-config_files=($ZshFiles/**/*.zsh)
+configFiles=($ZshFiles/**/*.zsh)
 
-for file in ${(M)config_files}; do
+for file in ${(M)configFiles}; do
 	echo "loading $file"
 	source $file
 done
