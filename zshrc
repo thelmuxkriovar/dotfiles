@@ -14,7 +14,6 @@ typeset -U config_files
 configFiles=($ZshFiles/**/*.zsh)
 
 for file in ${(M)configFiles}; do
-	echo "loading $file"
 	source $file
 done
 
