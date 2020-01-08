@@ -16,8 +16,8 @@ radius = 0
 line-size = 0
 
 font-0 = San Francisco Display Regular:size=10;3
-font-1 = "Hack Nerd Font:size=12:antialias=true;3"
-font-2 = "Noto Sans CJK JP:size=11:antialias=true;3"
+font-1 = "Hack Nerd Font:size=14:antialias=true;3"
+font-2 = "Noto Sans CJK JP:size=12:antialias=true;3"
 
 module-margin-left = 0
 module-margin-right = 2
@@ -142,7 +142,7 @@ animation-packetloss-framerate = 500
 
 [module/wifi]
 type = custom/script
-exec = getWifi
+exec = "/home/danny/.bin/getWifi"
 tail = true
 format = <label>
 format-padding = 0 
