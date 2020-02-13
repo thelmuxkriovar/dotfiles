@@ -1,2 +1,2 @@
 xterm*decTerminalID	:	vt340
-rofi.terminal: termite
+rofi.terminal: kitty 

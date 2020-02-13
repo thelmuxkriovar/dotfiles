@@ -1,17 +1,19 @@
 super + m
-	termite -e mountable
+	kitty -e mountable
 super + shift + m
-	termite -e unmountable
+	ktty -e unmountable
 super + Return
-	termite
+	kitty
 super + c
 	rofiCalculator
 super + d
 	rofi -modi "drun,ssh" -show drun
+super + shift + d
+	rofiWebsite
 super + i
-	termite -e htop
+	kitty -e htop
 super + shift + a
-	termite -e alsamixer
+	kitty -e alsamixer
 super + shift + grave
 	unicodeMenu
 @ctrl + shift + alt + 4

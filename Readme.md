@@ -10,7 +10,7 @@
 - polybar
 - compton
 - sxhkd
-- termite
+- kitty
 - zsh
 - antigen.zsh (`curl -L git.io/antigen > antigen.zsh`)
 - dunst
